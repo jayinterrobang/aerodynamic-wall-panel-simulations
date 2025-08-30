@@ -20,37 +20,37 @@ FoamFile
     {
         type            patch;
         nFaces          2800;
-        startFace       668285;
+        startFace       676570;
     }
     left
     {
         type            patch;
-        nFaces          2835;
-        startFace       671085;
+        nFaces          2870;
+        startFace       679370;
     }
     right
     {
         type            patch;
-        nFaces          2835;
-        startFace       673920;
+        nFaces          2870;
+        startFace       682240;
     }
     outlet
     {
         type            patch;
         nFaces          2800;
-        startFace       676755;
+        startFace       685110;
     }
     top
     {
         type            patch;
-        nFaces          6480;
-        startFace       679555;
+        nFaces          6560;
+        startFace       687910;
     }
     bottom
     {
         type            patch;
-        nFaces          6480;
-        startFace       686035;
+        nFaces          6560;
+        startFace       694470;
     }
 )
 

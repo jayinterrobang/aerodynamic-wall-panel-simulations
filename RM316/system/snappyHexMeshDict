@@ -38,7 +38,7 @@ castellatedMeshControls
     refinementSurfaces
     {
         volume {
-            level (4 5); 
+            level (5 6); 
         };
     };
 
