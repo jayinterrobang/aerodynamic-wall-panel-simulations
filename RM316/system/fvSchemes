@@ -1,4 +1,3 @@
-
 /*--------------------------------*- C++ -*----------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -27,21 +26,24 @@ gradSchemes
 
 divSchemes
 {
-    default             none;
-
-    div(phi,U)          Gauss linearUpwind grad(U);
-    div(phi,k)          Gauss upwind;
-    div(phi,epsilon)    Gauss upwind;
-    div(phi,R)          Gauss upwind;
-    div(R)              Gauss linear;
-    div(phi,nuTilda)    Gauss upwind;
-
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    default         none;
+    div(phi,U)      Gauss limitedLinearV 1;
+    div(phid,p)     Gauss limitedLinear 1;
+    div(phi,K)      Gauss linear;
+    div(phi,h)      Gauss limitedLinear 1;
+    div(phi,k)      Gauss limitedLinear 1;
+    div(phi,epsilon) Gauss limitedLinear 1;
+    div(phi,R)      Gauss limitedLinear 1;
+    div(phi,omega)  Gauss limitedLinear 1;
+    div((rho*R))    Gauss linear;
+    div(R)          Gauss linear;
+    div(U)          Gauss linear;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         Gauss linear orthogonal;
 }
 
 interpolationSchemes
@@ -51,7 +53,12 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         corrected;
+    default         orthogonal;
+}
+
+wallDist
+{
+    method meshWave;
 }
 
 

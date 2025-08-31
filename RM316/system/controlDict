@@ -1,4 +1,3 @@
-
 /*--------------------------------*- C++ -*----------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -17,27 +16,27 @@ FoamFile
 
 application     foamRun;
 
-solver          compressibleFluid;
+solver          fluid;
 
-startFrom       latestTime;
+startFrom       startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         2;
+endTime         1;
 
-deltaT          0.2;
+deltaT          0.01;
 
-writeControl    timeStep;
+writeControl    runTime;
 
-writeInterval   1;
+writeInterval   0.1;
 
 purgeWrite      0;
 
-writeFormat     ascii;
+writeFormat     binary;
 
-writePrecision  6;
+writePrecision  10;
 
 writeCompression off;
 
@@ -45,10 +44,12 @@ timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable yes;
+runTimeModifiable true;
 
 adjustTimeStep  no;
 
-maxCo           5;
+maxCo           0.3;
+
+maxDeltaT       1;
 
 // ************************************************************************* //
