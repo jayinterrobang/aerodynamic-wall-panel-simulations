@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+
+	// Edit these values to fit
+	// - the direction of the wind (you can check with paraview)
+	// - the value of the wind vel (this is the thing we recorded)
+    top 
+    {
+        type            fixedValue;
+        value           uniform (0 0 -1);
+    }
+
+    bottom
+    {
+        type            noSlip;
+    }
+
+    inlet 
+    {
+        type            noSlip;
+    }
+
+    outlet 
+    {
+        type            noSlip;
+    }
+
+    left 
+    {
+        type            noSlip;
+    }
+
+    right
+    {
+        type            noSlip;
+    }
+
+    BExwall
+    {
+        type            noSlip;
+    }
+}
+
+// ************************************************************************* //
