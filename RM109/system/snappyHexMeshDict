@@ -52,7 +52,7 @@ castellatedMeshControls
     nCellsBetweenLevels 2;
     resolveFeatureAngle 10;
     allowFreeStandingZoneFaces false;
-    locationInMesh (0 0.05 0);
+    locationInMesh (-1 1 3);
 }
 
 snapControls
