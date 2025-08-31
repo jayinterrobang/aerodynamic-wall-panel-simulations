@@ -28,7 +28,6 @@ boundaryField
     {
         type            zeroGradient;
     }
-
     volume 
     {
         type            kqRWallFunction;
@@ -36,8 +35,7 @@ boundaryField
     }
     top 
     {
-        type            fixedValue;
-        value           uniform 0.375;
+        type            zeroGradient;
     }
     bottom 
     {

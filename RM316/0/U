@@ -22,8 +22,7 @@ boundaryField
 
     top 
     {
-        type            fixedValue;
-        value           uniform (0 0 -1);
+        type            noSlip;
     }
 
     bottom
@@ -33,7 +32,8 @@ boundaryField
 
     inlet 
     {
-        type            noSlip;
+        type            fixedValue;
+        value           uniform (0 0 -1);
     }
 
     outlet 

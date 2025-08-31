@@ -38,8 +38,7 @@ boundaryField
 
     top 
     {
-        type            calculated;
-        value           uniform 0;
+        type            zeroGradient;
     }
 
     right 
