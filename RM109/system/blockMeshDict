@@ -16,11 +16,11 @@ FoamFile
 // this is all copied form pitzDaily tutorial btw (ver openfoam12)
 convertToMeters 1;
 
-xmin 0;
-ymin 0;
+xmin -9;
+ymin -0.5;
 zmin 0;
-xmax 9;
-ymax 12;
+xmax 0.5;
+ymax 12.5;
 zmax 5;
 
 deltax 0.1;
