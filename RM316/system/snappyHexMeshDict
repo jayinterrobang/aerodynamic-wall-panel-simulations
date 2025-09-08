@@ -38,7 +38,7 @@ castellatedMeshControls
     refinementSurfaces
     {
         volume {
-            level (5 6); 
+            level (7 8); 
         };
     };
 
@@ -47,8 +47,8 @@ castellatedMeshControls
         volume {mode distance; levels ((1.0 4) (2.0 3) (3.0 2));}
     };
 
-    maxLocalCells 600000;
-    maxGlobalCells 800000;
+    maxLocalCells 20000;
+    maxGlobalCells 60000;
     minRefinementCells -1;
     maxLoadUnbalance 0.1;
 

@@ -23,9 +23,9 @@ xmax 8;
 ymax 8.2;
 zmax 3.5;
 
-deltax 0.1;
-deltay 0.1;
-deltaz 0.1;
+deltax 0.05;
+deltay 0.05;
+deltaz 0.05;
 
 xcells #calc "round($xmax / $deltax)";
 ycells #calc "round($ymax / $deltay)";
