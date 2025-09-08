@@ -27,8 +27,7 @@ boundaryField
 
     outlet
     {
-        type            inletOutlet;
-        inletValue      uniform 300;
+        type            fixedValue;
         value           uniform 300;
     }
 
@@ -58,7 +57,8 @@ boundaryField
 
     volume 
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 300;
     }
 }
 
