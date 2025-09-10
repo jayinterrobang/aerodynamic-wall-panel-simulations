@@ -28,20 +28,8 @@ boundaryField
         E               9.8;
         value           uniform 2.6;
     }
-    top 
-    {
-        type            empty;
-    }
-    bottom 
-    {
-        type            empty;
-    }
-    left 
-    {
-        type            empty;
-    }
-    right 
-    {
+    walls
+    { 
         type            empty;
     }
     inlet 

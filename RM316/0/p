@@ -19,15 +19,11 @@ internalField   uniform 101325;
 
 boundaryField
 {
-    top
+    walls 
     {
         type            zeroGradient;
     }
 
-    bottom 
-    {
-        type            zeroGradient;
-    }
 
     inlet 
     {
@@ -35,16 +31,6 @@ boundaryField
     }
 
     outlet 
-    {
-        type            zeroGradient;
-    }
-
-    left 
-    {
-        type            zeroGradient;
-    }
-
-    right 
     {
         type            zeroGradient;
     }

@@ -20,12 +20,7 @@ internalField   uniform (0 0 0);
 boundaryField
 {
 
-    top 
-    {
-        type            noSlip;
-    }
-
-    bottom
+    walls 
     {
         type            noSlip;
     }
@@ -37,16 +32,6 @@ boundaryField
     }
 
     outlet 
-    {
-        type            noSlip;
-    }
-
-    left 
-    {
-        type            noSlip;
-    }
-
-    right
     {
         type            noSlip;
     }

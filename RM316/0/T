@@ -31,25 +31,7 @@ boundaryField
         value           uniform 300;
     }
 
-    top 
-    {
-        type            fixedValue;
-        value           uniform 300;
-    }
-
-    bottom 
-    {
-        type            fixedValue;
-        value           uniform 300;
-    }
-
-    left 
-    {
-        type            fixedValue;
-        value           uniform 300;
-    }
-
-    right 
+    walls 
     {
         type            fixedValue;
         value           uniform 300;

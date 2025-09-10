@@ -31,22 +31,7 @@ boundaryField
         type            zeroGradient;
     }
 
-    bottom 
-    {
-        type            zeroGradient;
-    }
-
-    top 
-    {
-        type            zeroGradient;
-    }
-
-    right 
-    {
-        type            zeroGradient;
-    }
-
-    left 
+    walls
     {
         type            zeroGradient;
     }

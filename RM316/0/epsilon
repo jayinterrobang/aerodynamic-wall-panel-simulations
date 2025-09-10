@@ -33,19 +33,7 @@ boundaryField
         type            epsilonWallFunction;
         value           $internalField;
     }
-    top 
-    {
-        type            zeroGradient;
-    }
-    bottom 
-    {
-        type            zeroGradient;
-    }
-    left 
-    {
-        type            zeroGradient;
-    }
-    right 
+    walls 
     {
         type            zeroGradient;
     }

@@ -17,15 +17,15 @@ FoamFile
 convertToMeters 1;
 
 xmin 0;
-ymin -0.1;
+ymin -1;
 zmin 0;
 xmax 8;
-ymax 8.2;
+ymax 8.5;
 zmax 3.5;
 
-deltax 0.05;
-deltay 0.05;
-deltaz 0.05;
+deltax 0.1;
+deltay 0.1;
+deltaz 0.1;
 
 xcells #calc "round($xmax / $deltax)";
 ycells #calc "round($ymax / $deltay)";
@@ -56,49 +56,28 @@ boundary
 (
     inlet 
     {
-        type patch;
+        type wall;
         faces
         (
             (3 7 6 2)
         );
     }
-    left 
-    {
-        type patch;
-        faces
-        (
-            (0 4 7 3)
-        );
-    }
-    right 
-    {
-        type patch;
-        faces
-        (
-            (2 6 5 1)
-        );
-    }
     outlet 
     {
-        type patch;
+        type wall;
         faces
         (
             (0 1 5 4)
         );
     }
-    top 
+    walls 
     {
-        type patch;
+        type wall;
         faces
         (
+            (0 4 7 3)
+            (2 6 5 1)
             (4 5 6 7)
-        );
-    }
-    bottom 
-    {
-        type patch;
-        faces
-        (
             (0 3 2 1)
         );
     }

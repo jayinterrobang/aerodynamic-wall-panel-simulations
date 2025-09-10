@@ -26,16 +26,7 @@ boundaryField
     outlet {
         type            zeroGradient;
     }
-    top {
-        type            zeroGradient;
-    }
-    bottom {
-        type            zeroGradient;
-    }
-    left {
-        type            zeroGradient;
-    }
-    right {
+    walls {
         type            zeroGradient;
     }
     volume

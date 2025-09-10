@@ -32,7 +32,7 @@ castellatedMeshControls
 {
     features
     (
-        { file "Volume.eMesh"; levels ((7 8)); }
+        { file "Volume.eMesh"; levels ((4 5)); }
     );
 
     refinementSurfaces
@@ -44,16 +44,16 @@ castellatedMeshControls
 
     refinementRegions
     {
-        volume {mode distance; levels ((1.0 4) (2.0 3) (3.0 2));}
+//        volume {mode distance; levels ((1.0 3) (2.0 1));}
     };
 
-    maxLocalCells 20000;
-    maxGlobalCells 60000;
+    maxLocalCells 100000;
+    maxGlobalCells 300000;
     minRefinementCells -1;
     maxLoadUnbalance 0.1;
 
-    nCellsBetweenLevels 2;
-    resolveFeatureAngle 10;
+    nCellsBetweenLevels 5;
+    resolveFeatureAngle 30;
     allowFreeStandingZoneFaces false;
     locationInMesh (1 1 2);
 }
@@ -67,14 +67,14 @@ snapControls
     // Maximum relative distance for points to be attracted by surface.
     // True distance is this factor times local maximum edge length.
     // Note: changed(corrected) w.r.t 17x! (17x used 2* tolerance)
-    tolerance 4.0;
+    tolerance 1.5;
 
     // Number of mesh displacement relaxation iterations.
-    nSolveIter 30;
+    nSolveIter 10;
 
     // Maximum number of snapping relaxation iterations. Should stop
     // before upon reaching a correct mesh.
-    nRelaxIter 5;
+    nRelaxIter 10;
 
     // Feature snapping
 
