@@ -23,25 +23,25 @@ boundaryField
 {
     inlet 
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
 
     outlet    
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
 
     walls
     {
-        type            zeroGradient;
+        type            nutkWallFunction;
+        value           uniform 0;
     }
 
     volume 
     {
         type            nutkWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
         value           uniform 0;
     }
 

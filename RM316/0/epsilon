@@ -16,17 +16,21 @@ FoamFile
 
 dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 0.000765;
+internalField   uniform 0.23;
 
 boundaryField
 {
     inlet 
     {
-        type            zeroGradient;
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
     }
+
     outlet
     {
-        type            zeroGradient;
+        type            inletOutlet;
+        inletValue      $internalField;  
     }
     volume 
     {
@@ -35,7 +39,8 @@ boundaryField
     }
     walls 
     {
-        type            zeroGradient;
+        type            epsilonWallFunction;
+        value           $internalField;
     }
 }
 

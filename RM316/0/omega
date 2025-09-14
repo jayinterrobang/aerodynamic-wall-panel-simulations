@@ -30,15 +30,15 @@ boundaryField
     }
     walls
     { 
-        type            empty;
+        type            zeroGradient;
     }
     inlet 
     {
-        type            empty;
+        type            zeroGradient;
     }
     outlet 
     {
-        type            empty;
+        type            zeroGradient;
     }
 }
 
