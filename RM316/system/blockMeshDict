@@ -18,18 +18,36 @@ convertToMeters 1;
 
 xmin 0;
 ymin -1;
-zmin -0.5;
+zmin -0.4;
 xmax 8.1;
-ymax 8.5;
-zmax 3.5;
+ymax 8.6;
+zmax 3.6;
 
-deltax 0.1;
-deltay 0.1;
-deltaz 0.1;
+deltax 0.2;
+deltay 0.2;
+deltaz 0.2;
 
 xcells #calc "round($xmax / $deltax)";
 ycells #calc "round($ymax / $deltay)";
 zcells #calc "round($zmax / $deltaz)";
+
+fan_x1_low 4.10;
+fan_x1_high 4.60;
+fan_x2_low 2.10;
+fan_x2_high 2.60;
+
+fan_y1_low 1.20;
+fan_y1_high 1.70;
+fan_y2_low 3.80;
+fan_y2_high 4.30;
+fan_y3_low 6.40;
+fan_y3_high 6.90;
+
+fan_z 3.6;
+
+fanx #calc "round(($fan_x1_high - $fan_x1_low) / $deltax)";
+fany #calc "round(($fan_y1_high - $fan_y1_low) / $deltay)";
+fanz 1;
 
 vertices
 (
@@ -41,6 +59,36 @@ vertices
     ($xmax $ymin $zmax) // 5
     ($xmax $ymax $zmax) // 6
     ($xmin $ymax $zmax) // 7
+
+    ($fan_x1_low $fan_y1_low $fan_z) // 8
+    ($fan_x1_high $fan_y1_low $fan_z) // 9
+    ($fan_x1_high $fan_y1_high $fan_z) // 10
+    ($fan_x1_low $fan_y1_high $fan_z) // 11 
+
+    ($fan_x2_low $fan_y1_low $fan_z) // 12 
+    ($fan_x2_high $fan_y1_low $fan_z) // 13 
+    ($fan_x2_high $fan_y1_high $fan_z) // 14 
+    ($fan_x2_low $fan_y1_high $fan_z) // 15 
+
+    ($fan_x1_low $fan_y2_low $fan_z) //16 
+    ($fan_x1_high $fan_y2_low $fan_z)
+    ($fan_x1_high $fan_y2_high $fan_z)
+    ($fan_x1_low $fan_y2_high $fan_z) 
+
+    ($fan_x2_low $fan_y2_low $fan_z) // 20 
+    ($fan_x2_high $fan_y2_low $fan_z)
+    ($fan_x2_high $fan_y2_high $fan_z) 
+    ($fan_x2_low $fan_y2_high $fan_z) 
+
+    ($fan_x1_low $fan_y3_low $fan_z) // 24 
+    ($fan_x1_high $fan_y3_low $fan_z)
+    ($fan_x1_high $fan_y3_high $fan_z)
+    ($fan_x1_low $fan_y3_high $fan_z) 
+
+    ($fan_x2_low $fan_y3_low $fan_z) // 28
+    ($fan_x2_high $fan_y3_low $fan_z)
+    ($fan_x2_high $fan_y3_high $fan_z) 
+    ($fan_x2_low $fan_y3_high $fan_z) 
 );
 
 edges (
@@ -52,11 +100,21 @@ blocks
     hex (0 1 2 3 4 5 6 7) ($xcells $ycells $zcells) simpleGrading (1 1 1)
 );
 
+faces
+(
+    project (8 9 10 11)
+);
+//    hex (15 14 13 12) ($fanx $fany $fanz) simpleGrading (1 1 1)
+//    hex (16 17 18 19) ($fanx $fany $fanz) simpleGrading (1 1 1)
+//    hex (20 21 22 23) ($fanx $fany $fanz) simpleGrading (1 1 1)
+//    hex (24 25 26 27) ($fanx $fany $fanz) simpleGrading (1 1 1)
+//    hex (28 29 30 31) ($fanx $fany $fanz) simpleGrading (1 1 1)
+
 boundary
 (
     inlet 
     {
-        type wall;
+        type patch;
         faces
         (
             (3 7 6 2)
@@ -64,7 +122,7 @@ boundary
     }
     outlet 
     {
-        type wall;
+        type patch;
         faces
         (
             (0 1 5 4)
@@ -81,6 +139,59 @@ boundary
             (0 3 2 1)
         );
     }
+    fan1
+    {
+        type patch;
+        faces
+        (
+            (8 9 10 11)
+        );
+    }
+
+//    fan2
+//    {
+//        type patch;
+//        faces
+//        (
+//            (12 13 14 15)
+//        );
+//    }
+//
+//    fan3
+//    {
+//        type patch;
+//        faces
+//        (
+//            (16 17 18 19)
+//        );
+//    }
+//
+//    fan4
+//    {
+//        type patch;
+//        faces
+//        (
+//            (20 21 22 23)
+//        );
+//    }
+//
+//    fan5
+//    {
+//        type patch;
+//        faces
+//        (
+//            (24 25 26 27)
+//        );
+//    }
+//
+//    fan6
+//    {
+//        type patch;
+//        faces
+//        (
+//            (28 29 30 31)
+//        );
+//    }
 );
 
 mergePatchPairs
