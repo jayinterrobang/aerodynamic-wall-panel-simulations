@@ -25,21 +25,57 @@ boundaryField
         type            noSlip;
     }
 
+    volume 
+    {
+        type            zeroGradient;
+    }
+
     inlet 
     {
         type            fixedValue;
         value           uniform (0 -1 0);
     }
 
+    fan1
+    {
+        type            fixedValue;
+        value           uniform (0 0 -4.39);
+    }
+
+    fan2
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.18);
+    }
+
+    fan3
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.17);
+    }
+
+    fan4
+    {
+        type            fixedValue;
+        value           uniform (0 0 -4.63);
+    }
+
+    fan5
+    {
+        type            fixedValue;
+        value           uniform (0 0 -4.57);
+    }
+
+    fan6
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.06);
+    }
+
     outlet 
     {
         type            pressureInletOutletVelocity;
         value           uniform (0 0 0);
-    }
-
-    volume 
-    {
-        type            noSlip;
     }
 }
 

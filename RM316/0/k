@@ -28,17 +28,53 @@ boundaryField
     }
     outlet 
     {
-        type            inletOulet;
+        type            inletOutlet;
         value           $internalField;    
+    }
+    walls
+    {
+        type            kqRWallFunction;
+        value           $internalField;
     }
     volume 
     {
         type            kqRWallFunction;
         value           $internalField;
     }
-    walls
+    fan1 
     {
-        type            kqRWallFunction;
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan2 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan3 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan4 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan5 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan6 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
         value           $internalField;
     }
 }

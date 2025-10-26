@@ -32,16 +32,61 @@ boundaryField
         type            inletOutlet;
         inletValue      $internalField;  
     }
-    volume 
-    {
-        type            epsilonWallFunction;
-        value           $internalField;
-    }
+
     walls 
     {
         type            epsilonWallFunction;
         value           $internalField;
     }
+
+    volume 
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+
+    fan1 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    fan2 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    fan3
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    fan4 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    fan5 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    fan6 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
 }
 
 

@@ -13,7 +13,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
 internalField   uniform 0;
 
@@ -24,20 +24,50 @@ boundaryField
         type            zeroGradient;
     }
 
+    volume 
+    {
+        type            zeroGradient;
+    }
+
     inlet 
     {
-        type            fixedValue;
-        value           uniform 0;
+        type            zeroGradient;
+    }
+
+    fan1 
+    {
+        type            zeroGradient;
+    }
+
+    fan2 
+    {
+        type            zeroGradient;
+    }
+
+    fan3 
+    {
+        type            zeroGradient;
+    }
+
+    fan4 
+    {
+        type            zeroGradient;
+    }
+
+    fan5 
+    {
+        type            zeroGradient;
+    }
+
+    fan6 
+    {
+        type            zeroGradient;
     }
 
     outlet 
     {
-        type            zeroGradient;
-    }
-
-    volume 
-    {
-        type            zeroGradient;
+        type            fixedValue;
+        value           uniform 0;
     }
 }
 

@@ -17,36 +17,7 @@ FoamFile
 
 viscosityModel  constant;
 
-nu              [0 2 -1 0 0 0 0] 1e-05;
-
-thermoType
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          hConst;
-    equationOfState perfectGas;
-    specie          specie;
-    energy          sensibleEnthalpy;
-}
-
-mixture
-{
-    specie
-    {
-        nMoles          1;
-        molWeight       28.96;
-    }
-    thermodynamics
-    {
-        Cp              1004.5;
-        Hf              2.544e+06;
-    }
-    transport
-    {
-        mu              1.8e-05;
-        Pr              0.7;
-    }
-}
+// Air at 23 degC
+nu              [0 2 -1 0 0 0 0] 1.56225e-05;
 
 // ************************************************************************* //
