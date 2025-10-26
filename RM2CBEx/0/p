@@ -1,3 +1,4 @@
+
 /*--------------------------------*- C++ -*----------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -8,21 +9,37 @@
 FoamFile
 {
     format      ascii;
-    class       dictionary;
-    object      surfaceFeaturesDict;
+    class       volScalarField;
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-volume
-{
-    surfaces
-    (
-        "BEx.stl"
-    );
+dimensions      [0 2 -2 0 0 0 0];
 
-    // Mark edges whose adjacent surface normals are at an angle less
-    // than includedAngle as features
-    // - 0  : selects no edges
-    // - 120: selects all edges
-    includedAngle           120;
+internalField   uniform 0;
+
+boundaryField
+{
+    walls 
+    {
+        type            zeroGradient;
+    }
+
+    inlet 
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    outlet 
+    {
+        type            zeroGradient;
+    }
+
+    volume 
+    {
+        type            zeroGradient;
+    }
 }
+
+// ************************************************************************* //

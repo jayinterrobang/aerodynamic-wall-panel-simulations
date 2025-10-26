@@ -1,5 +1,4 @@
 
-
 /*--------------------------------*- C++ -*----------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -11,23 +10,20 @@ FoamFile
 {
     format      ascii;
     class       dictionary;
-    location    "constant";
-    object      momentumTransport;
+    object      surfaceFeaturesDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType RAS;
-
-RAS
+volume
 {
-    model           kEpsilon;
+    surfaces
+    (
+        "rmmodel.stl"
+    );
 
-    turbulence      on;
-
-    printCoeffs     on;
+    // Mark edges whose adjacent surface normals are at an angle less
+    // than includedAngle as features
+    // - 0  : selects no edges
+    // - 180: selects all edges
+    includedAngle           160;
 }
-
-// ************************************************************************* //
-
-
-
