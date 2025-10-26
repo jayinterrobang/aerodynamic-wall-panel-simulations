@@ -14,6 +14,8 @@ faceList = {}
 
 walls = []
 fans = []
+inlets = []
+outlets = []
 
 cellSize = 0.1
 
@@ -141,9 +143,9 @@ FoamFile
                 if i == len(cuts[0])-2:
                     walls.append(thisBlock.faces[2])
                 if j == 0:
-                    walls.append(thisBlock.faces[1])
+                    outlets.append(thisBlock.faces[1])
                 if j == len(cuts[1])-2:
-                    walls.append(thisBlock.faces[3])
+                    inlets.append(thisBlock.faces[3])
                 if k == 0:
                     walls.append(thisBlock.faces[0])
                 if k == len(cuts[2])-2:
@@ -163,6 +165,22 @@ FoamFile
     to_write += "\t type wall; \n"
     to_write += "\t faces (\n"
     for face in walls:
+        to_write += "\t\t" + face.getString() + "\n"
+    to_write += "\t);\n"
+    to_write += "}\n\n"
+
+    to_write += "inlet {\n"
+    to_write += "\t type patch; \n"
+    to_write += "\t faces (\n"
+    for face in inlets:
+        to_write += "\t\t" + face.getString() + "\n"
+    to_write += "\t);\n"
+    to_write += "}\n\n"
+
+    to_write += "outlet {\n"
+    to_write += "\t type patch; \n"
+    to_write += "\t faces (\n"
+    for face in outlets:
         to_write += "\t\t" + face.getString() + "\n"
     to_write += "\t);\n"
     to_write += "}\n\n"
