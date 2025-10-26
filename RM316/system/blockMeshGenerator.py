@@ -167,13 +167,15 @@ FoamFile
     to_write += "\t);\n"
     to_write += "}\n\n"
 
-    to_write += "fans {\n"
-    to_write += "\t type patch;\n"
-    to_write += "\t faces (\n"
+    count = 0
     for face in fans:
+        count += 1
+        to_write += "fan" + str(count) + " {\n"
+        to_write += "\t type patch;\n"
+        to_write += "\t faces (\n"
         to_write += "\t\t" + face.getString() + "\n"
-    to_write += "\t);\n"
-    to_write += "}\n"
+        to_write += "\t);\n"
+        to_write += "}\n"
     to_write += ");\n"
 
     with open("blockMeshDict", "w") as file:
