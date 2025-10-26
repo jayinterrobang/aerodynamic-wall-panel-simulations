@@ -1,5 +1,14 @@
 import math
 
+############################################
+# ONLY EDIT THIS PART OF THE CODE FOR CONFIG
+cuts = [
+    [0, 2.1, 2.6, 4.1, 4.6, 8.1],
+    [-1, 1.2, 1.7, 3.8, 4.3, 6.4, 6.9, 8.6],
+    [0, 3.3]
+]
+############################################
+
 vertexList = {}
 faceList = {}
 
@@ -15,8 +24,8 @@ class Face:
 
         faceList[hashVertexList(vertices)] = self
     
-    def printFace(self):
-        print(f"\t\t({" ".join([str(x.number) for x in self.vertices])})")
+    def getString(self):
+        return f"({" ".join([str(x.number) for x in self.vertices])})"
 
 class Block:
     def createFaces(self):
@@ -44,9 +53,10 @@ class Block:
 
         return (blockX, blockY, blockZ)
     
-    def printBlock(self):
+    def getString(self):
         nx, ny, nz = self.getBlockCount()
-        print(f"hex ({" ".join([str(x.number) for x in self.vertices])}) ({nx} {ny} {nz}) simpleGrading (1 1 1)", end="")
+        return f"hex ({" ".join([str(x.number) for x in self.vertices])}) ({nx} {ny} {nz}) simpleGrading (1 1 1)"
+
 
 class Vertex:
     def __init__(self, x, y, z):
@@ -55,11 +65,10 @@ class Vertex:
         self.z = z
         self.number = len(vertexList) 
 
-        print(f"new vertex: ({x}, {y}, {z})")
         vertexList[(x,y,z)] = self 
 
-    def printVertex(self):
-        print(f"({self.x} {self.y} {self.z})", end="")
+    def getString(self):
+        return f"({self.x} {self.y} {self.z})"
 
 def createVertex(x, y, z):
     if ((x,y,z) in vertexList):
@@ -79,15 +88,6 @@ def createFace(vertices):
 def hashVertexList(vertices):
     return " ".join([str(x.number) for x in vertices])
 
-############################################
-# ONLY EDIT THIS PART OF THE CODE FOR CONFIG
-cuts = [
-    [0, 2.1, 2.6, 4.1, 4.6, 8.1],
-    [-1, 1.2, 1.7, 3.8, 4.3, 6.4, 6.9, 8.6],
-    [0, 3.6]
-]
-############################################
-
 def main():
     # FLOW
     # from the cuts dict, create all possible vertices. 
@@ -96,11 +96,28 @@ def main():
             for z in cuts[2]:
                 createVertex(x,y,z)
     
+    to_write = """ /*--------------------------------*- C++ -*----------------------------------*\\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //\n"""
+    to_write += "vertices (\n"
     count = 0
     for vertex in vertexList.values():
-        vertex.printVertex()
-        print(f" // {count}")
+        to_write += "\t" + vertex.getString() + f" // {count}\n"
         count += 1
+    to_write += ");\n\n"    
+
+    to_write += "blocks (\n"
 
     count = 0
     for i in range(len(cuts[0])-1):
@@ -136,27 +153,31 @@ def main():
                     else:
                         walls.append(thisBlock.faces[5])
 
-                thisBlock.printBlock()
-                print(f" // {count}")
+                to_write += "\t" + thisBlock.getString() + f" // {count}\n"
                 count += 1
+    
+    to_write += ");\n\n"
 
-    print("""walls
-{
-\t type wall;
-\t faces (""")
+    to_write += "boundary (\n"
+    to_write += "walls {\n"
+    to_write += "\t type wall; \n"
+    to_write += "\t faces (\n"
     for face in walls:
-        face.printFace()
-    print("\t)")
-    print(")")
+        to_write += "\t\t" + face.getString() + "\n"
+    to_write += "\t);\n"
+    to_write += "}\n\n"
 
-    print("""fans
-{
-\t type patch;
-\t faces (""")
+    to_write += "fans {\n"
+    to_write += "\t type patch;\n"
+    to_write += "\t faces (\n"
     for face in fans:
-        face.printFace()
-    print("\t)")
-    print(")")
+        to_write += "\t\t" + face.getString() + "\n"
+    to_write += "\t);\n"
+    to_write += "}\n"
+    to_write += ");\n"
+
+    with open("blockMeshDict", "w") as file:
+        file.write(to_write)
 
 if __name__ == "__main__":
     main()
