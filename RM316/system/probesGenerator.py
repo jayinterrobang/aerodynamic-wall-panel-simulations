@@ -22,7 +22,7 @@ for i, point in enumerate(toProbe):
     for x in [-1, 0, 1]:
         for y in [-1, 0, 1]:
             for z in [-1, 0, 1]:
-                points.append((point[0] + x*cellSize, point[1] + y*cellSize, point[2] + y*cellSize))
+                points.append((point[0] + x*cellSize, point[1] + y*cellSize, point[2] + z*cellSize))
 
     toPrint = """
 /*--------------------------------*- C++ -*----------------------------------*\\
