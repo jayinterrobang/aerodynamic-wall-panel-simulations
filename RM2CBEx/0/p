@@ -35,12 +35,6 @@ boundaryField
         type            zeroGradient;
     }
 
-    outlet 
-    {
-        type            fixedValue;
-        value           uniform 0;
-    }
-    
     fan1 
     {
         type            zeroGradient;
@@ -69,6 +63,12 @@ boundaryField
     fan6 
     {
         type            zeroGradient;
+    }
+
+    outlet 
+    {
+        type            fixedValue;
+        value           uniform 0;
     }
 }
 

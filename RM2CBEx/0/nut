@@ -1,5 +1,4 @@
 
-
 /*--------------------------------*- C++ -*----------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -45,6 +44,7 @@ boundaryField
         type            nutkWallFunction;
         value           uniform 0;
     }
+
     fan1 
     {
         type            calculated;
