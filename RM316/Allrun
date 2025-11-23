@@ -7,27 +7,27 @@ cd "${0%/*}" || exit 1
 . "$WM_PROJECT_DIR/bin/tools/RunFunctions"
 
 ### ONLY FOR 
-cd system/
-echo "Creating blockMesh file..."
-python3 blockMeshGenerator.py
-echo "blockMesh file created."
-cd ..
+# cd system/
+# echo "Creating blockMesh file..."
+# python3 blockMeshGenerator.py
+# echo "blockMesh file created."
+# cd ..
 
-echo "Running blockMesh..."
-runApplication blockMesh
-echo "blockMesh complete."
+# echo "Running blockMesh..."
+# runApplication blockMesh
+# echo "blockMesh complete."
 
-echo "Running surfaceFeatures..."
-runApplication surfaceFeatures
-echo "surfaceFeatures complete."
+# echo "Running surfaceFeatures..."
+# runApplication surfaceFeatures
+# echo "surfaceFeatures complete."
 
-echo "Running snappyHexMesh..."
-runApplication snappyHexMesh -overwrite 
-echo "snappyHexMesh complete."
+# echo "Running snappyHexMesh..."
+# runApplication snappyHexMesh -overwrite 
+# echo "snappyHexMesh complete."
 
 ### RUNNING SIMULATIONS
 echo "Running simpleFoam..."
-runApplication simpleFoam
+simpleFoam
 echo "Simulation complete."
 
 cd system/
@@ -35,6 +35,10 @@ echo "Generating probes..."
 python3 probesGenerator.py
 echo "Probe generation complete."
 cd ..
+
+postProcess -func probes1 -latestTime
+postProcess -func probes2 -latestTime
+postProcess -func probes3 -latestTime
 
 echo "Opening paraFoam..."
 runApplication paraFoam
