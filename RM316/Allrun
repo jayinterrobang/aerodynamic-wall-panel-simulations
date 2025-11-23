@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Run from this directory
+cd "${0%/*}" || exit 1
+
+# Source tutorial run functions
+. "$WM_PROJECT_DIR/bin/tools/RunFunctions"
+
+### ONLY FOR 
+# runApplication blockMesh
+# runApplication surfaceFeatures
+# cd system/
+# python3 blockMeshGenerator.py
+# cd ..
+# runApplication snappyHexMesh -overwrite 
+
+### RUNNING SIMULATIONS
+echo "Running simpleFoam..."
+runApplication simpleFoam
+echo "Simulation complete."
+echo "Generating probes..."
+cd system/
+python3 probesGenerator.py
+echo "Probe generation complete."
+cd ..
+echo "Opening paraFoam..."
+runApplication paraFoam
+echo "paraFoam opened."
+
+# # example running toposet and refinemesh 3 times with multiple dictionaries
+# # -a|-append option appends to log file
+# i=0
+# while [ "$i" -lt 3 ]
+# do
+#     runapplication -a toposet -dict "toposetdict.${i}"
+#     runapplication -a refinemesh -dict "refinemeshdict.${i}"
+#     i=$(( i + 1))
+# done
+
+# runapplication decomposepar
+
+# # example with runparallel to run in parallel
+# # getapplication finds solver name from "application" entry in controldict
+# runparallel "$(getapplication)"
+
+# runapplication reconstructpar
+
+#------------------------------------------------------------------------------
+
+echo "Finished, no errors."
