@@ -16,14 +16,14 @@ FoamFile
 
 dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 0.23;
+internalField   uniform 0.001;
 
 boundaryField
 {
     inlet 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.091;
         value           $internalField;
     }
 
@@ -48,42 +48,42 @@ boundaryField
     fan1 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 
     fan2 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 
     fan3
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 
     fan4 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 
     fan5 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 
     fan6 
     {
         type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.0168;
+        mixingLength    0.035;
         value           $internalField;
     }
 

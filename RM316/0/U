@@ -27,54 +27,79 @@ boundaryField
 
     volume 
     {
-        type            zeroGradient;
+        type            noSlip;
     }
 
     inlet 
     {
         type            fixedValue;
-        value           uniform (0 -1 0);
+        value           uniform (0 -0.2556 0);
     }
 
     fan1
     {
-        type            fixedValue;
-        value           uniform (0 0 -4.39);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate        constant 0.8620;
+        radialVelocity  constant 0.7569;
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     fan2
     {
-        type            fixedValue;
-        value           uniform (0 0 -5.18);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate        constant 1.0170;
+        radialVelocity  constant 0.8930;
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     fan3
     {
-        type            fixedValue;
-        value           uniform (0 0 -5.17);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate  constant 1.0171;
+        radialVelocity  constant 0.8930;   
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     fan4
     {
-        type            fixedValue;
-        value           uniform (0 0 -4.63);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate  constant 0.9091;
+        radialVelocity  constant 0.7983;   
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     fan5
     {
-        type            fixedValue;
-        value           uniform (0 0 -4.57);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate  constant 0.9873;
+        radialVelocity  constant 0.8669;   
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     fan6
     {
-        type            fixedValue;
-        value           uniform (0 0 -5.06);
+        type            swirlFlowRateInletVelocity;
+        volumetricFlowRate  constant 0.9935;
+        radialVelocity  constant 0.8724;   
+        omega           300;
+        
+        value           uniform (0 0 0);
     }
 
     outlet 
     {
-        type            pressureInletOutletVelocity;
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
         value           uniform (0 0 0);
     }
 }

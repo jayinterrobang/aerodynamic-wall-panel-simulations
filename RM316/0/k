@@ -23,13 +23,13 @@ boundaryField
     inlet
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.03;
         value           $internalField;
     }
     outlet 
     {
         type            inletOutlet;
-        value           $internalField;    
+        inletValue      $internalField;    
     }
     walls
     {
@@ -44,37 +44,37 @@ boundaryField
     fan1 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
     fan2 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
     fan3 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
     fan4 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
     fan5 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
     fan6 
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.14;
+        intensity       0.4;
         value           $internalField;
     }
 }
