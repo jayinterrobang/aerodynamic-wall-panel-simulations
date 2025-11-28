@@ -29,7 +29,7 @@ boundaryField
     outlet 
     {
         type            inletOutlet;
-        value           $internalField;    
+        inletValue           $internalField;    
     }
     walls
     {
