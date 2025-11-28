@@ -18,5 +18,6 @@ FoamFile
 #includeFunc probes1
 #includeFunc probes2
 #includeFunc probes3
+#includeFunc probeComparison 
 
 // ************************************************************************* //

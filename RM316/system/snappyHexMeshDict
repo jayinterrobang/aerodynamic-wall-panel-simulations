@@ -47,8 +47,8 @@ castellatedMeshControls
 //        volume {mode distance; levels ((1.0 3) (2.0 1));}
     };
 
-    maxLocalCells 50000;
-    maxGlobalCells 100000;
+    maxLocalCells 100000;
+    maxGlobalCells 300000;
     minRefinementCells -1;
     maxLoadUnbalance 0.1;
 
