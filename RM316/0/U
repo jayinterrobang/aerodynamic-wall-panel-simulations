@@ -17,6 +17,8 @@ dimensions      [0 1 -1 0 0 0 0];
 
 internalField   uniform (0 0 0);
 
+factor  0.85;
+
 boundaryField
 {
 
@@ -33,43 +35,43 @@ boundaryField
     inlet 
     {
         type            fixedValue;
-        value           uniform (0 -1 0);
+        value           uniform (0 -0.2 0);
     }
 
     fan1
     {
         type            fixedValue;
-        value           uniform (0 0 -4.39);
+        value           uniform (0 0 #calc "-4.39 * $factor");
     }
 
     fan2
     {
         type            fixedValue;
-        value           uniform (0 0 -5.18);
+        value           uniform (0 0 #calc "-5.18 * $factor");
     }
 
     fan3
     {
         type            fixedValue;
-        value           uniform (0 0 -5.17);
+        value           uniform (0 0 #calc "-5.17 * $factor");
     }
 
     fan4
     {
         type            fixedValue;
-        value           uniform (0 0 -4.63);
+        value           uniform (0 0 #calc "-4.63 * $factor");
     }
 
     fan5
     {
         type            fixedValue;
-        value           uniform (0 0 -4.57);
+        value           uniform (0 0 #calc "-4.57 * $factor");
     }
 
     fan6
     {
         type            fixedValue;
-        value           uniform (0 0 -5.06);
+        value           uniform (0 0 #calc "-5.06 * $factor");
     }
 
     outlet 
