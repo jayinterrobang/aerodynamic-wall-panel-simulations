@@ -7,23 +7,23 @@ cd "${0%/*}" || exit 1
 . "$WM_PROJECT_DIR/bin/tools/RunFunctions"
 
 ### ONLY FOR 
-# cd system/
-# echo "Creating blockMesh file..."
-# python3 blockMeshGenerator.py
-# echo "blockMesh file created."
-# cd ..
+cd system/
+echo "Creating blockMesh file..."
+python3 blockMeshGenerator.py
+echo "blockMesh file created."
+cd ..
 
-# echo "Running blockMesh..."
-# runApplication blockMesh
-# echo "blockMesh complete."
+echo "Running blockMesh..."
+blockMesh
+echo "blockMesh complete."
 
-# echo "Running surfaceFeatures..."
-# runApplication surfaceFeatures
-# echo "surfaceFeatures complete."
+echo "Running surfaceFeatures..."
+surfaceFeatures
+echo "surfaceFeatures complete."
 
-# echo "Running snappyHexMesh..."
-# runApplication snappyHexMesh -overwrite 
-# echo "snappyHexMesh complete."
+echo "Running snappyHexMesh..."
+snappyHexMesh -overwrite 
+echo "snappyHexMesh complete."
 
 ### RUNNING SIMULATIONS
 echo "Running simpleFoam..."
@@ -36,13 +36,23 @@ python3 probesGenerator.py
 echo "Probe generation complete."
 cd ..
 
-postProcess -func probes1 -latestTime
-postProcess -func probes2 -latestTime
-postProcess -func probes3 -latestTime
+# postProcess -func probes1 -time 100
+# postProcess -func probes2 -time 100
+# postProcess -func probes3 -time 100
 
-echo "Opening paraFoam..."
-runApplication paraFoam
-echo "paraFoam opened."
+# postProcess -func probes1 -time 200
+# postProcess -func probes2 -time 200
+# postProcess -func probes3 -time 200
+
+# postProcess -func probes1 -time 300
+# postProcess -func probes2 -time 300
+# postProcess -func probes3 -time 300
+
+postProcess -func probeComparison -time 200
+
+# echo "Opening paraFoam..."
+# paraFoam
+# echo "paraFoam opened."
 
 # # example running toposet and refinemesh 3 times with multiple dictionaries
 # # -a|-append option appends to log file
