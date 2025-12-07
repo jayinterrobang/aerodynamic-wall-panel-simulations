@@ -1,0 +1,12 @@
+# vtk DataFile Version 2.0
+shortEdges
+ASCII
+DATASET POLYDATA
+POINTS 2 float
+3.71454 8.2 1.01164 3.71454 8.2 1.01164 
+VERTICES 2 4
+1 0 1 1 
+POINT_DATA 2
+FIELD attributes 1
+pointID 1 2 float
+90580 90581 
