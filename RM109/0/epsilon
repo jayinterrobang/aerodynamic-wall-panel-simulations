@@ -16,34 +16,75 @@ FoamFile
 
 dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 0.000765;
+internalField   uniform 0.23;
 
 boundaryField
 {
-    inlet 
+    inlet
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;  
+    }
+
+    walls 
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+    wall
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+    fan1 
     {
         type            zeroGradient;
     }
-    room_patch32768
+    fan2 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }fan3
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }fan4 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }fan5 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }fan6 
+    {
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
+    }fan7 
     {
         type            zeroGradient;
-    }
-    top 
+    }fan8 
     {
-        type            zeroGradient;
-    }
-    right
-    {
-        type            zeroGradient;
+        type            turbulentMixingLengthDissipationRateInlet;
+        mixingLength    0.0168;
+        value           $internalField;
     }
     room 
     {
         type            epsilonWallFunction;
         value           $internalField;
-    }
-    walls 
-    {
-        type            zeroGradient;
     }
 }
 
