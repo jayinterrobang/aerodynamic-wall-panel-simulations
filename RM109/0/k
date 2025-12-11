@@ -16,34 +16,79 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0.375;
+internalField   uniform 8e-2;
 
 boundaryField
 {
     inlet
     {
-        type            zeroGradient;
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
     }
-    room_patch32768 
+    outlet 
     {
-        type            zeroGradient;
+        type            inletOutlet;
+        inletValue      $internalField;
     }
-    top
+    walls
     {
-        type            zeroGradient;
+        type            kqRWallFunction;
+        value           $internalField;
     }
-    right 
+    wall
     {
-        type            zeroGradient;
+        type            kqRWallFunction;
+        value           $internalField;
     }
     room 
     {
         type            kqRWallFunction;
-        value           uniform 0.375;
+        value           $internalField;
     }
-    walls
+    fan1 
     {
         type            zeroGradient;
+    }
+    fan2 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan3 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan4 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan5 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan6 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
+    }
+    fan7 
+    {
+        type            zeroGradient;
+    }
+    fan8 
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.14;
+        value           $internalField;
     }
 }
 
