@@ -15,7 +15,9 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0.692 0.692 0);
+internalField   uniform (0 0 0);
+
+// factor  0.85
 
 boundaryField
 {
@@ -27,33 +29,73 @@ boundaryField
     inlet 
     {
         type            fixedValue;
-        value           uniform (0.7633 0 0);
+        value           uniform (0 -0.7633 0);
     }
 
-    room_patch32768
+    outlet
     {
-        type            fixedValue;
-        value           uniform (0.7633 0 0);
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
     }
 
-    top 
+    room 
     {
-        type            noSlip;
-    }
-
-    right 
-    {
-        type            noSlip;
+        type            zeroGradient;
     }
 
     walls 
     {
         type            noSlip;
     }
-
-    room 
+    wall 
     {
         type            noSlip;
+    }
+
+    fan1
+    {
+        type            noSlip;
+    }
+
+    fan2
+    {
+        type            fixedValue;
+        value           uniform (0 0 -4.8267);
+    }
+
+    fan3
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.9933);
+    }
+
+    fan4
+    {
+        type            fixedValue;
+        value           uniform (0 0 -7.1300);
+    }
+
+    fan5
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.1767);
+    }
+
+    fan6
+    {
+        type            fixedValue;
+        value           uniform (0 0 -6.1367);
+    }
+
+    fan7
+    {
+        type            noSlip;
+    }
+
+    fan8
+    {
+        type            fixedValue;
+        value           uniform (0 0 -5.1200);
     }
 }
 
