@@ -14,39 +14,73 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 101325;
+internalField   uniform 0;
 
 boundaryField
 {
-    walls 
-    {
-        type            zeroGradient;
-    }
-
-    inlet 
+    outlet 
     {
         type            fixedValue;
         value           uniform 0;
     }
 
-    room_patch32768 
-    {
-        type            zeroGradient;
-    }
-
-    right 
-    {
-        type            zeroGradient;
-    }
-
-    top 
+    inlet 
     {
         type            zeroGradient;
     }
 
     room 
+    {
+        type            zeroGradient;
+    }
+
+    walls
+    {
+        type            zeroGradient;
+    }
+    wall
+    {
+        type            zeroGradient;
+    }
+
+    fan1 
+    {
+        type            zeroGradient;
+    }
+
+    fan2 
+    {
+        type            zeroGradient;
+    }
+
+    fan3 
+    {
+        type            zeroGradient;
+    }
+
+    fan4 
+    {
+        type            zeroGradient;
+    }
+
+    fan5 
+    {
+        type            zeroGradient;
+    }
+
+    fan6 
+    {
+        type            zeroGradient;
+    }
+
+    fan7 
+    {
+        type            zeroGradient;
+    }
+
+    fan8 
     {
         type            zeroGradient;
     }
