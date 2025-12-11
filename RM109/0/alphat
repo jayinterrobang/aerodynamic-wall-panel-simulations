@@ -20,20 +20,49 @@ internalField   uniform 0;
 
 boundaryField
 {
-    inlet {
-        type            zeroGradient;
-    }
-    room_patch32768 {
-        type            zeroGradient;
-    }
-    walls {
-        type            zeroGradient;
-    }
-    top 
+    inlet
     {
         type            zeroGradient;
     }
-    right
+    outlet 
+    {
+        type            zeroGradient;
+    }
+    left 
+    {
+        type            zeroGradient;
+    }
+    walls
+    {
+        type            zeroGradient;
+    }
+    wall
+    {
+        type            zeroGradient;
+    }
+    fan1 
+    {
+        type            zeroGradient;
+    }
+    fan2 
+    {
+        type            zeroGradient;
+    }fan3
+    {
+        type            zeroGradient;
+    }fan4 
+    {
+        type            zeroGradient;
+    }fan5 
+    {
+        type            zeroGradient;
+    }fan6 
+    {
+        type            zeroGradient;
+    }fan7 
+    {
+        type            zeroGradient;
+    }fan8 
     {
         type            zeroGradient;
     }
