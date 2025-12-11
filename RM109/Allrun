@@ -1,0 +1,40 @@
+# Run from this directory
+cd "${0%/*}" || exit 1
+
+# Source tutorial run functions
+. "$WM_PROJECT_DIR/bin/tools/RunFunctions"
+
+### ONLY FOR 
+echo "Creating blockMesh file..."
+(
+    cd system || exit
+    python3 blockMeshGenerator.py
+)
+echo "blockMesh file created."
+
+echo "Running blockMesh..."
+blockMesh
+echo "blockMesh complete."
+
+echo "Running surfaceFeatures..."
+surfaceFeatures
+echo "surfaceFeatures complete."
+
+echo "Running snappyHexMesh..."
+snappyHexMesh -overwrite
+echo "snappyHexMesh complete."
+
+echo "Running simpleFoam..."
+simpleFoam
+echo "Simulation complete."
+
+echo "Generating probes..."
+(
+    cd system || exit
+    python3 probesGenerator.py
+)
+echo "Probe generation complete."
+
+postProcess -func probeComparison -time 200
+
+echo "Finished, no errors."
