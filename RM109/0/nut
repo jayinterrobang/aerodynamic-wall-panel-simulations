@@ -22,37 +22,63 @@ internalField   uniform 0;
 
 boundaryField
 {
-    inlet 
+    inlet
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
-
-    room_patch32768    
+    outlet 
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 0;
     }
-
-    top 
-    {
-        type            zeroGradient;
-    }
-
-    right    
-    {
-        type            zeroGradient;
-    }
-
     walls
     {
-        type            zeroGradient;
+        type            nutkWallFunction;
+        value           uniform 0;
     }
-
+    wall
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    fan1 
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    fan2 
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan3
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan4 
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan5 
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan6 
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan7 
+    {
+        type            calculated;
+        value           uniform 0;
+    }fan8 
+    {
+        type            calculated;
+        value           uniform 0;
+    }
     room 
     {
         type            nutkWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
         value           uniform 0;
     }
 
