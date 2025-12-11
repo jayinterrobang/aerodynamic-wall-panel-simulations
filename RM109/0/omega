@@ -28,23 +28,19 @@ boundaryField
         E               9.8;
         value           uniform 2.6;
     }
+    inlet
+    { 
+        type            zeroGradient;
+    }
+    outlet
+    { 
+        type            zeroGradient;
+    }
     walls
     { 
         type            zeroGradient;
     }
-    inlet 
-    {
-        type            zeroGradient;
-    }
-    room_patch32768 
-    {
-        type            zeroGradient;
-    }
-    top 
-    {
-        type            zeroGradient;
-    }
-    right 
+    wall
     {
         type            zeroGradient;
     }
